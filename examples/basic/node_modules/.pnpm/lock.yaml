@@ -1,0 +1,22 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@deessejs/collections':
+        specifier: ^0.0.3
+        version: 0.0.3
+
+packages:
+
+  '@deessejs/collections@0.0.3':
+    resolution: {integrity: sha512-RNTDbl1Hhgwd7+Uimfu5La9/omasad5mYP9GX2eg8T7UHJj/Lt4HdN+RjQRVFLYGlbydIoRDXAj7MwuRhmTpow==}
+
+snapshots:
+
+  '@deessejs/collections@0.0.3': {}
