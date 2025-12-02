@@ -1,27 +1,31 @@
 import { z } from "zod";
-import { DeepPartial } from "../utils/deep-partial";
 
 export type FieldTypeConfig<TParams extends z.ZodType = z.ZodType> = {
-  schema: TParams;
+  schema?: TParams;
   dsl: {
     kind: string;
-    config?: Record<string, any>;
   };
   admin: {
     component: any;
   };
 };
 
-export type FieldTypeFinal<TParams extends z.ZodType = z.ZodType> = {
+export type FieldTypeFinal<
+  TParams extends z.ZodType = z.ZodType,
+  TOutput = any,
+> = {
   kind: string;
   params: z.infer<TParams>;
   dsl: {
     kind: string;
-    config?: Record<string, any>;
+    isPrimary: boolean;
+    isUnique: boolean;
+    canBeNull: boolean;
   };
   admin: {
     component: any;
   };
+  _output?: TOutput; // Propriété fantôme pour le typage
 };
 
 export type FieldPermissions = {
@@ -31,12 +35,26 @@ export type FieldPermissions = {
   delete: (ctx: any) => Promise<boolean>;
 };
 
-export type FieldConfig<TType extends FieldTypeConfig> = {
+export type FieldConfig<TType extends FieldTypeFinal> = {
   type: TType;
   permissions?: Partial<FieldPermissions>;
 };
 
-export type Field<TType extends FieldTypeConfig = FieldTypeConfig> = {
+export type Field<TType extends FieldTypeFinal = FieldTypeFinal> = {
   type: TType;
   permissions: FieldPermissions;
+};
+
+export type InferSchema<F extends Record<string, Field>> = {
+  [K in keyof F]: F[K] extends Field<infer FT>
+    ? FT extends FieldTypeFinal<any, infer TVal>
+      ? TVal
+      : never
+    : never;
+};
+
+export type FieldChain<TType extends FieldTypeFinal> = Field<TType> & {
+  unique(): FieldChain<TType>;
+  required(): FieldChain<TType>;
+  optional(): FieldChain<TType>;
 };
