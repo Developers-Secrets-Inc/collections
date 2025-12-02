@@ -9,14 +9,23 @@ importers:
   .:
     dependencies:
       '@deessejs/collections':
-        specifier: ^0.0.3
-        version: 0.0.3
+        specifier: ^0.0.5
+        version: 0.0.5(zod@4.1.13)
 
 packages:
 
-  '@deessejs/collections@0.0.3':
-    resolution: {integrity: sha512-RNTDbl1Hhgwd7+Uimfu5La9/omasad5mYP9GX2eg8T7UHJj/Lt4HdN+RjQRVFLYGlbydIoRDXAj7MwuRhmTpow==}
+  '@deessejs/collections@0.0.5':
+    resolution: {integrity: sha512-qOo0qLcwx5B3AUucWJtiF+IVQlbtJZ9IKdbfxw8aSTEC3ICRyJzJZSaujhNFVW/kJ1oPF+e3bpvak4Ib6eMfHg==}
+    peerDependencies:
+      zod: ^4.1.12
+
+  zod@4.1.13:
+    resolution: {integrity: sha512-AvvthqfqrAhNH9dnfmrfKzX5upOdjUVJYFqNSlkmGf64gRaTzlPwz99IHYnVs28qYAybvAlBV+H7pn0saFY4Ig==}
 
 snapshots:
 
-  '@deessejs/collections@0.0.3': {}
+  '@deessejs/collections@0.0.5(zod@4.1.13)':
+    dependencies:
+      zod: 4.1.13
+
+  zod@4.1.13: {}

@@ -17,3 +17,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./config"), exports);
 __exportStar(require("./collections"), exports);
 __exportStar(require("./fields"), exports);
+__exportStar(require("./providers"), exports);
+__exportStar(require("./plugins"), exports);
