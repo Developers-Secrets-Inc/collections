@@ -9,7 +9,7 @@ export const number = fieldType<
   }>
 >({
   schema: z.object({ min: z.number().optional(), max: z.number().optional() }),
-  dsl: { kind: "number" },
+  dsl: { kind: "numeric" },
   admin: { component: undefined },
 });
 
@@ -34,5 +34,11 @@ export const uuid = fieldType<string, z.ZodVoid>({
 export const timestamp = fieldType<string, z.ZodVoid>({
   schema: z.void(),
   dsl: { kind: "timestamp" },
+  admin: { component: undefined },
+});
+
+export const serial = fieldType<string, z.ZodVoid>({
+  schema: z.void(),
+  dsl: { kind: "serial" },
   admin: { component: undefined },
 });

@@ -1,6 +1,6 @@
 {
   "name": "@deessejs/collections",
-  "version": "0.0.27",
+  "version": "0.0.51",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -40,23 +40,33 @@
   },
   "homepage": "https://github.com/Developers-Secrets-Inc/collections#readme",
   "devDependencies": {
-    "zod": "^4.1.12",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/user-event": "^14.6.1",
     "@types/jsdom": "^27.0.0",
     "@types/node": "^20.0.0",
+    "@types/pg": "^8.15.6",
     "@types/sinon": "^21.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitest/coverage-v8": "^4.0.13",
     "@vitest/ui": "^4.0.13",
+    "drizzle-kit": "^0.31.8",
     "eslint": "^8.0.0",
     "jsdom": "^27.2.0",
     "sinon": "^21.0.0",
+    "tsx": "^4.21.0",
     "typescript": "^5.0.0",
-    "vitest": "^4.0.13"
+    "vitest": "^4.0.13",
+    "zod": "^4.1.12"
   },
   "peerDependencies": {
     "zod": "^4.1.12"
+  },
+  "dependencies": {
+    "chokidar": "^5.0.0",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.45.0",
+    "jiti": "^2.6.1",
+    "pg": "^8.16.3"
   }
 }

@@ -3,6 +3,7 @@ import {
   Field,
   FieldChain,
   FieldConfig,
+  FieldKind,
   FieldPermissions,
   FieldTypeConfig,
   FieldTypeFinal,
@@ -12,7 +13,7 @@ import { attachChain } from "./constraints";
 export const fieldType =
   <TOutput, TParams extends z.ZodType | undefined>(config: {
     schema?: TParams;
-    dsl: { kind: string };
+    dsl: { kind: FieldKind };
     admin: { component: any };
   }) =>
   (params?: TParams extends z.ZodType ? z.infer<TParams> : undefined) => {
