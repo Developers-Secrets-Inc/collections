@@ -1,9 +1,22 @@
 import { z } from "zod";
 
+export type FieldKind =
+  | "integer"
+  | "serial"
+  | "boolean"
+  | "text"
+  | "varchar"
+  | "char"
+  | "numeric"
+  | "decimal"
+  | "json"
+  | "uuid"
+  | "timestamp";
+
 export type FieldTypeConfig<TParams extends z.ZodType = z.ZodType> = {
   schema?: TParams;
   dsl: {
-    kind: string;
+    kind: FieldKind;
   };
   admin: {
     component: any;
@@ -57,4 +70,5 @@ export type FieldChain<TType extends FieldTypeFinal> = Field<TType> & {
   unique(): FieldChain<TType>;
   required(): FieldChain<TType>;
   optional(): FieldChain<TType>;
+  primary(): FieldChain<TType>;
 };

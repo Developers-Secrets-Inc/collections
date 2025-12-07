@@ -41,6 +41,18 @@ export const optional = <TType extends FieldTypeFinal>(
   },
 });
 
+export const primary = <TType extends FieldTypeFinal>(
+  field: Field<TType>,
+): Field<TType> => ({
+  ...field,
+  type: {
+    ...field.type,
+    dsl: {
+      ...field.type.dsl,
+      isPrimary: true,
+    },
+  },
+});
 export const attachChain = <TType extends FieldTypeFinal>(
   f: Field<TType>,
 ): FieldChain<TType> => {
@@ -57,6 +69,10 @@ export const attachChain = <TType extends FieldTypeFinal>(
 
     optional() {
       return attachChain(optional(f));
+    },
+
+    primary() {
+      return attachChain(primary(f));
     },
   };
 };

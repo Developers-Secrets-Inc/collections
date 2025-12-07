@@ -6,7 +6,7 @@ import { Provider } from "../providers/types";
 import { UnionToIntersection } from "../utils/union-intersection";
 
 export type Config = {
-  provider: Provider;
+  databaseUrl: string;
   readonly collections: Collection[];
   plugins?: Plugin[];
 };

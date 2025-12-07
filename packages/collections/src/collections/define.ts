@@ -1,4 +1,4 @@
-import { field, Field, timestamp, uuid } from "../fields";
+import { field, Field, primary, serial, timestamp, uuid } from "../fields";
 import { extendFields } from "./extend-fields";
 import { Collection } from "./types";
 
@@ -9,7 +9,7 @@ export const collection = <
   config: Collection<Slug, Fields>,
 ) => {
   return extendFields(config, {
-    id: field({ type: uuid() }),
+    id: primary(field({ type: serial() })),
     createdAt: field({ type: timestamp() }),
     updatedAt: field({ type: timestamp() }),
   });
